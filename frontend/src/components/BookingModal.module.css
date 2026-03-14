@@ -1,0 +1,359 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(8, 11, 15, .94);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.box {
+  background: var(--dark);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: modalIn .32s cubic-bezier(.2, .8, .2, 1) both;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.hdr {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background: var(--dark);
+  z-index: 2;
+}
+
+.title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.55rem;
+  letter-spacing: 1.5px;
+}
+
+.sub {
+  font-size: .78rem;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 4px;
+  transition: color .2s;
+}
+
+.closeBtn:hover {
+  color: var(--white);
+}
+
+.body {
+  padding: 18px 24px 26px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* inputs */
+.body input,
+.body select,
+.body textarea {
+  width: 100%;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: .88rem;
+  outline: none;
+  transition: .2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.body input:focus,
+.body select:focus,
+.body textarea:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, .1);
+}
+
+.body input::placeholder,
+.body textarea::placeholder {
+  color: var(--muted);
+}
+
+.body textarea {
+  resize: vertical;
+  min-height: 68px;
+}
+
+.body select option {
+  background: var(--panel);
+}
+
+.inputErr {
+  border-color: var(--red) !important;
+}
+
+/* chips */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.chip {
+  padding: 6px 12px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: .2s;
+  user-select: none;
+}
+
+.chip:hover {
+  border-color: rgba(0, 212, 255, .4);
+  color: var(--white);
+}
+
+.chipSel {
+  border-color: var(--cyan) !important;
+  color: var(--cyan) !important;
+  background: rgba(0, 212, 255, .1) !important;
+}
+
+/* tabs */
+.tabs {
+  display: flex;
+  gap: 7px;
+}
+
+.tab {
+  padding: 7px 14px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .2s;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.tab:hover {
+  border-color: rgba(0, 212, 255, .4);
+}
+
+.tabSel {
+  border-color: var(--cyan) !important;
+  color: var(--cyan) !important;
+  background: rgba(0, 212, 255, .1) !important;
+}
+
+/* slot grid */
+.period {
+  margin-bottom: 14px;
+}
+
+.periodLbl {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.slotGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 7px;
+}
+
+.slot {
+  padding: 8px 4px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  cursor: pointer;
+  transition: .2s;
+  font-size: .78rem;
+  font-weight: 500;
+}
+
+.slot:hover:not(.slotBooked):not(.slotBlocked) {
+  border-color: rgba(0, 212, 255, .4);
+}
+
+.slotSel {
+  border-color: var(--cyan) !important;
+  background: rgba(0, 212, 255, .1) !important;
+  color: var(--cyan) !important;
+}
+
+.slotBooked {
+  opacity: .3;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.slotBlocked {
+  opacity: .25;
+  cursor: not-allowed;
+  background: rgba(255, 77, 106, .05) !important;
+  border-color: rgba(255, 77, 106, .2) !important;
+}
+
+.slotSub {
+  font-size: .6rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.slotSel .slotSub {
+  color: rgba(0, 212, 255, .65);
+}
+
+/* footer */
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.btnCancel {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: .86rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: .2s;
+}
+
+.btnCancel:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.btnSave {
+  background: var(--cyan);
+  color: var(--black);
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: .88rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: .2s;
+}
+
+.btnSave:hover {
+  opacity: .88;
+}
+
+@media(max-width:680px) {
+  .overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .box {
+    border-radius: 16px 16px 0 0;
+    max-height: 95vh;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.apiErr {
+  background: rgba(255, 77, 106, .1);
+  border: 1px solid rgba(255, 77, 106, .3);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: .82rem;
+  color: var(--red);
+  margin-bottom: 14px;
+}
+
+/* date strip */
+.dateStrip {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+}
+
+.dateStrip::-webkit-scrollbar {
+  display: none;
+}
+
+.dateChip {
+  min-width: 54px;
+  padding: 8px 4px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  cursor: pointer;
+  text-align: center;
+  transition: .2s;
+}
+
+.dateChipSel {
+  border-color: var(--cyan);
+  background: rgba(0, 212, 255, .1);
+}
+
+.dcDay {
+  font-size: .65rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.dcNum {
+  font-size: .95rem;
+  font-weight: 700;
+}
+
+.dateChipSel .dcDay {
+  color: var(--cyan);
+}
+
+.dateChipSel .dcNum {
+  color: var(--cyan);
+}

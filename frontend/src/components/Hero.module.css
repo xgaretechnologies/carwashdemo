@@ -1,0 +1,17 @@
+.hero { min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;overflow:hidden;padding:120px 5% 80px; }
+.bg { position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(0,212,255,.12) 0%,transparent 70%),radial-gradient(ellipse 50% 50% at 20% 50%,rgba(29,140,248,.08) 0%,transparent 60%),var(--black); }
+.drops { position:absolute;inset:0;pointer-events:none; }
+.content { position:relative;max-width:760px;text-align:center;animation:fadeUp .8s ease both; }
+.badge { display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.25);padding:6px 16px;border-radius:50px;font-size:.78rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyan);margin-bottom:28px; }
+.badge::before { content:'';width:6px;height:6px;background:var(--cyan);border-radius:50%;animation:pulse 2s infinite; }
+.content h1 { font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,10vw,7rem);line-height:.92;letter-spacing:2px;margin-bottom:24px; }
+.hl { -webkit-text-fill-color:transparent;background:linear-gradient(90deg,var(--cyan),var(--blue));-webkit-background-clip:text;background-clip:text; }
+.sub { font-size:clamp(1rem,2.5vw,1.15rem);color:var(--muted);line-height:1.7;max-width:520px;margin:0 auto 40px; }
+.btns { display:flex;gap:14px;justify-content:center;flex-wrap:wrap; }
+.outline { border:1px solid var(--border);color:var(--white);padding:14px 34px;border-radius:8px;font-weight:500;font-size:.95rem;text-decoration:none;transition:.2s; }
+.outline:hover { border-color:var(--cyan);color:var(--cyan); }
+.stats { display:flex;justify-content:center;gap:3rem;margin-top:64px;flex-wrap:wrap;position:relative;animation:fadeUp .8s .3s ease both; }
+.stat { text-align:center; }
+.statN { font-family:'Bebas Neue',sans-serif;font-size:2.6rem;color:var(--cyan);letter-spacing:1px; }
+.statL { font-size:.78rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase; }
+@media(max-width:680px) { .stats { gap:1.8rem; } }
