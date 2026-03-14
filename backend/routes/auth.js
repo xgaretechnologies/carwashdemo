@@ -19,7 +19,7 @@ router.post('/login', async (req, res) => {
       'SELECT * FROM users WHERE username = $1',
       [username.trim().toLowerCase()]
     )
-    console.log("rows---->", rows)
+
     const user = rows[0]
     if (!user) return res.status(401).json({ error: 'Invalid credentials' })
 
